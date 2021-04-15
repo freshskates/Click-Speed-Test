@@ -4,16 +4,15 @@ const result = document.getElementById("result");
 const timer = document.getElementById("countdown");
 const scores = document.getElementById("scores");
 const filter = document.getElementById("timeframe-settings");
-
 const range = document.getElementById("accuracy");
 
 range.addEventListener("input", e => {
-  console.log(e.target.value);
   cookie.style.height = `${e.target.value}px`;
   cookie.style.width = `${e.target.value}px`;
 });
 
 const options = ["1", "5", "10", "15"];
+
 const game = {
   cps: 0,
   trial: 0,
@@ -22,13 +21,10 @@ const game = {
   progress: true,
 };
 
-const changecountdown = countdown => {
-  timer.innerHTML = `${countdown.toFixed(2)} Seconds Remaining`;
-};
+const changecountdown = countdown => (timer.innerHTML = `${countdown.toFixed(2)} Seconds Remaining`);
 
 const Handler = selected_option => {
   game.timeframe = parseInt(selected_option, 10);
-  console.log(game.timeframe);
   changecountdown(game.timeframe);
 };
 
@@ -36,9 +32,7 @@ filter.addEventListener("change", e => Handler(options[options.indexOf(e.target.
 
 Handler(options[options.indexOf(filter.value)]);
 
-const changecps = cps => {
-  count.innerHTML = `${cps} clicks`;
-};
+const changecps = cps => (count.innerHTML = `${cps} clicks`);
 
 const appendScores = (trial, score) => {
   scores.insertAdjacentHTML(
@@ -56,6 +50,7 @@ const appendScores = (trial, score) => {
 };
 
 cookie.ondragstart = () => false;
+
 const reset = (game, cps) => {
   ++game.trial;
   appendScores(game.trial, cps / game.timeframe);
@@ -65,6 +60,7 @@ const reset = (game, cps) => {
   game.elapsed = 0;
   game.progress = true;
 };
+
 const clickerTimer = countdown => {
   if (!game.progress) return;
   game.progress = false;
