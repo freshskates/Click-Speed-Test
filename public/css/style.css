@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+.title {
+  margin-top: 20px;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+}
+
+#accuracy {
+  width: 150px;
+}
+
+.container {
+  display: flex;
+  min-height: 200px;
+}
+
+#cookie-container {
+  display: flex;
+  justify-content: center;
+}
+
+.col1 {
+  align-self: stretch;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 33%;
+}
+#scores {
+  height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+.col2 {
+  /* align-self: flex-start; */
+  align-self: stretch;
+  width: 33%;
+}
+
+.col3 {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-end;
+
+  width: 33%;
+}
+.settings {
+  display: flex;
+  flex-direction: column;
+}
+#timeframe-settings {
+  height: 30px;
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid rgb(173, 173, 173);
+  margin-bottom: 40px;
+  margin-right: 40px;
+}
+
+#cookie {
+  background-color: rgb(47, 109, 160);
+  border: 2px solid rgb(14, 14, 14);
+  border-radius: 50%;
+  height: 400px;
+  width: 400px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+#cookie:active {
+  border: 10px solid rgb(14, 14, 14);
+}
