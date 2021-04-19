@@ -5,12 +5,7 @@ const timer = document.getElementById("countdown");
 const scores = document.getElementById("scores");
 const filter = document.getElementById("timeframe-settings");
 const range = document.getElementById("accuracy");
-
-range.addEventListener("input", e => {
-  cookie.style.height = `${e.target.value}px`;
-  cookie.style.width = `${e.target.value}px`;
-});
-
+const difficulty = document.getElementById("difficulty");
 const options = ["1", "5", "10", "15"];
 
 const game = {
@@ -19,7 +14,22 @@ const game = {
   timeframe: 10,
   elapsed: 0,
   progress: true,
+  difficulty: 400,
 };
+
+range.addEventListener("input", e => setDifficulty(e.target.value));
+
+const setDifficulty = value => {
+  cookie.style.height = `${value}px`;
+  cookie.style.width = `${value}px`;
+  if (value === "5") value = "impossible";
+  else if (value === "600") value = "noob";
+  else if (value === "400") value = "normal";
+  game.difficulty = value;
+  difficulty.innerHTML = `Difficulty: ${value}`;
+};
+
+setDifficulty(range.value);
 
 const changecountdown = countdown => (timer.innerHTML = `${countdown.toFixed(2)} Seconds Remaining`);
 
@@ -39,9 +49,11 @@ const appendScores = (trial, score) => {
     "beforeend",
     `
     <div>
-    <a id="trial${trial}">Trial: ${trial}<br>Score: ${score.toFixed(2)} cps</a>
+    <a>Trial: ${trial}<br>Score: ${score.toFixed(2)} cps</a>
     <br>
     <a>Setting: ${game.timeframe}s</a>
+    <br>
+    <a id="trial${trial}">Difficulty: ${game.difficulty}</a>
     </div>
     <br>
     `
