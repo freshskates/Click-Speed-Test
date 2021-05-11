@@ -7,7 +7,7 @@ const filter = document.getElementById("timeframe-settings");
 const range = document.getElementById("accuracy");
 const difficulty = document.getElementById("difficulty");
 const options = ["1", "5", "10", "15"];
-
+// Click Speed Game
 const game = {
   cps: 0,
   trial: 0,
