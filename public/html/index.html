@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    {% comment %} {% endcomment %}
 
-
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
     <script defer type="text/javascript" src="../js/script.js"></script>
-</head>
-<body>
-    <div class="title disable-select">
-        Click Speed Test
-    </div>
+  </head>
+  <body>
+    <div class="title disable-select">Click Speed Test</div>
     <div class="container">
-        <div class="col1">
-            <h3 id="count">0 clicks</h3>
-            <h3 id="countdown">5.00 Seconds Remaining</h3>
-            <div id="result">00.00 clicks per second</div>
-            <h3>Scores</h3>
-            <div id="scores">
-            </div>    
-        </div> 
-        <div class="col2">
-            <div id="cookie-container">
-                <div id="cookie" ></div>
-            </div>
+      <div class="col1">
+        <h3 id="count">0 clicks</h3>
+        <h3 id="countdown">5.00 Seconds Remaining</h3>
+        <div id="result">00.00 clicks per second</div>
+        <h3>Scores</h3>
+        <div id="scores"></div>
+      </div>
+      <div class="col2">
+        <div id="cookie-container">
+          <div id="cookie"></div>
         </div>
-        <div class="col3">
-            <div class="settings">
-                <select id="timeframe-settings">
-                    <option value="1">1 Second</option>
-                    <option value="5" default selected>5 Seconds</option>
-                    <option value="10">10 Seconds</option>
-                    <option value="15">15 Seconds</option>
-                </select>
-                <input type="range" id="accuracy" name="accuracy" min="5" value="400" max="600">
-                <h4 id="difficulty" class="disable-select"></h4>
-            </div>
-        </div>    
-    
+      </div>
+      <div class="col3">
+        <div class="settings">
+          <select id="timeframe-settings">
+            <option value="1">1 Second</option>
+            <option value="5" default selected>5 Seconds</option>
+            <option value="10">10 Seconds</option>
+            <option value="15">15 Seconds</option>
+          </select>
+          <input
+            type="range"
+            id="accuracy"
+            name="accuracy"
+            min="5"
+            value="400"
+            max="600"
+          />
+          <h4 id="difficulty" class="disable-select"></h4>
+        </div>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
