@@ -17,9 +17,9 @@ const game = {
   difficulty: 400,
 };
 
-range.addEventListener("input", e => setDifficulty(e.target.value));
+range.addEventListener("input", (e) => setDifficulty(e.target.value));
 
-const setDifficulty = value => {
+const setDifficulty = (value) => {
   cookie.style.height = `${value}px`;
   cookie.style.width = `${value}px`;
   if (value === "5") value = "impossible";
@@ -31,18 +31,21 @@ const setDifficulty = value => {
 
 setDifficulty(range.value);
 
-const changecountdown = countdown => (timer.innerHTML = `${countdown.toFixed(2)} Seconds Remaining`);
+const changecountdown = (countdown) =>
+  (timer.innerHTML = `${countdown.toFixed(2)} Seconds Remaining`);
 
-const Handler = selected_option => {
+const Handler = (selected_option) => {
   game.timeframe = parseInt(selected_option, 10);
   changecountdown(game.timeframe);
 };
 
-filter.addEventListener("change", e => Handler(options[options.indexOf(e.target.value)]));
+filter.addEventListener("change", (e) =>
+  Handler(options[options.indexOf(e.target.value)])
+);
 
 Handler(options[options.indexOf(filter.value)]);
 
-const changecps = cps => (count.innerHTML = `${cps} clicks`);
+const changecps = (cps) => (count.innerHTML = `${cps} clicks`);
 
 const appendScores = (trial, score) => {
   scores.insertAdjacentHTML(
@@ -73,7 +76,7 @@ const reset = (game, cps) => {
   game.progress = true;
 };
 
-const clickerTimer = countdown => {
+const clickerTimer = (countdown) => {
   if (!game.progress) return;
   game.progress = false;
   const run = setInterval(() => {
@@ -86,11 +89,13 @@ const clickerTimer = countdown => {
     }
 
     game.elapsed += 0.1;
-    result.innerHTML = `${(game.cps / game.elapsed).toFixed(2)} clicks per second`;
+    result.innerHTML = `${(game.cps / game.elapsed).toFixed(
+      2
+    )} clicks per second`;
   }, 100);
 };
 
-cookie.addEventListener("click", e => {
+cookie.addEventListener("click", (e) => {
   changecps(++game.cps);
   clickerTimer(game.timeframe);
 });
